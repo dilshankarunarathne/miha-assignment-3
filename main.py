@@ -8,20 +8,37 @@ people = {}
 class Person:
     contacts = {}
 
-    def __init__(self, person_nic):
-        self.nic = person_nic
+    def __init__(self, person_one_nic):
+        self.nic = person_one_nic
 
 
 def populate():
     file = open('Input.txt', 'r')
     for line in file:
-        (first_person_nic, contacted_person_nic, contact_date) = line.split(",")
+        if line is None:
+            pass
+        (first_person_nic, second_person_nic, contact_date) = line.split(",")
+        # print(first_person_nic, " touched ", contacted_person_nic, " on ", contact_date)
         if first_person_nic not in people:
+            print(first_person_nic, " was not found in the list")
             new_person = Person(first_person_nic)
-            new_person.contacts[contacted_person_nic] = contact_date
+            new_person.contacts[second_person_nic] = contact_date
             people[first_person_nic] = new_person
         else:
-            people[first_person_nic].contacts[contacted_person_nic] = contact_date
+            people[first_person_nic].contacts[second_person_nic] = contact_date
+        if second_person_nic not in people:
+            print(second_person_nic, " was not found in the list")
+            new_person = Person(second_person_nic)
+            new_person.contacts[first_person_nic] = contact_date
+            people[second_person_nic] = new_person
+        else:
+            people[second_person_nic].contacts[first_person_nic] = contact_date
+
+
+def check_for(nic):
+    if nic in people:
+        for contact in people[nic].contacts:
+            print(contact)
 
 
 # Press the green button in the gutter to run the script.
