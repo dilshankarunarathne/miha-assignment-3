@@ -2,27 +2,29 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-import this
+people = []
 
 
 class Person:
     contacts = {}
 
-    def __int__(self, nic):
-        this.nic = nic
-
-
-
+    def __init__(self, person_nic):
+        self.nic = person_nic
 
 
 def parse_input_file():
     file = open('Input.txt', 'r')
     for line in file:
-        print(line)
+        (first_person_nic, contacted_person_nic, contact_date) = line.split(",")
+        new_person = Person(first_person_nic)
+        new_person.contacts[contacted_person_nic] = contact_date
+        people.append(new_person)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     parse_input_file()
+    print(people)
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
