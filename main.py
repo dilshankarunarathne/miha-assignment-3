@@ -5,6 +5,12 @@
 import this
 
 
+class Person:
+    contacts = {}
+
+    def __int__(self, nic):
+        this.nic = nic
+
 
 
 
