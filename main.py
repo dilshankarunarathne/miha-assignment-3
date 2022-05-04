@@ -12,7 +12,7 @@ class Person:
         self.nic = person_nic
 
 
-def parse_input_file():
+def populate():
     file = open('Input.txt', 'r')
     for line in file:
         (first_person_nic, contacted_person_nic, contact_date) = line.split(",")
@@ -26,7 +26,8 @@ def parse_input_file():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    parse_input_file()
-    print(people)
+    populate()
+    (person_nic, contact_dd) = str(input()).split(" ")
+    check_for(person_nic)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
