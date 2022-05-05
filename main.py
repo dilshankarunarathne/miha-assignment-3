@@ -11,6 +11,10 @@ def populate():
         mock_db.append((nic_2, nic_1, contact_date))
 
 
+def sorted_dict():
+    mock_db.sort(key=lambda x: x[2])
+
+
 def print_list(nic):
     for contact in mock_db:
         nic_1, nic_2, contact_date = contact
@@ -23,4 +27,3 @@ if __name__ == '__main__':
     # print(mock_db)
     c_person_nic, c_contact_date = str(input()).split(" ")
     print_list(c_person_nic)
-
