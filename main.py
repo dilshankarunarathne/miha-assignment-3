@@ -16,15 +16,6 @@ def print_list(nic):
         nic_1, nic_2, contact_date = contact
         if nic_1 == nic:
             print(nic_2)
-            print_list_rec(nic_2, contact_date)
-
-
-def print_list_rec(nic, contact_date):
-    for contact in mock_db:
-        nic_1, nic_2, contact_date = contact
-        if nic_1 == nic:
-            print(nic_2)
-            print_list(nic_2)
 
 
 if __name__ == '__main__':
